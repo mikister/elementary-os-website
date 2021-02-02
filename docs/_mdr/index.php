@@ -9,6 +9,10 @@ if (
     is_readable($Request['Markdown'])
 ) {
     if ( is_dir($Request['Directory']) ) {
+        $page['styles'] = array(
+            'styles/docs.css'
+        );
+
         // List pages
 
         // Header
@@ -19,7 +23,7 @@ if (
         require_once $MDR['Core'].'/function.url_to_title.php';
         $Title = url_to_title($Request['Trimmed']);
         if ( !empty($Title) ) {
-            echo '<h2>'.$Title.'</h2>';
+            echo '<h1>'.$Title.'</h1>';
         }
 
         // Find Suitable Files
